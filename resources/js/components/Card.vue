@@ -12,6 +12,26 @@
                 </template>
             </ul>
         </div>
+        
+        
+            <div v-if="helpText" class="absolute pin-r pin-b p-2 z-50">
+                <tooltip trigger="click">
+                    <icon
+                        type="help"
+                        viewBox="0 0 17 17"
+                        height="16"
+                        width="16"
+                        class="cursor-pointer text-60 -mb-1"
+                    />
+
+                    <tooltip-content
+                        slot="content"
+                        v-html="helpText"
+                        :max-width="helpWidth"
+                    />
+                </tooltip>
+            </div>
+            
     </card>
 </template>
 
@@ -24,6 +44,8 @@
         },
 
         props: {
+            helpText: {},
+            helpWidth: {},
             card: {
                 type: Object,
                 required: true,
