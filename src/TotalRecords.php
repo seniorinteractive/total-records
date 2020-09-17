@@ -4,9 +4,12 @@ namespace Techouse\TotalRecords;
 
 use DateTimeInterface;
 use Laravel\Nova\Card;
+use Laravel\Nova\Metrics\HasHelpText;
 
 class TotalRecords extends Card
 {
+    use HasHelpText;
+    
     /**
      * @var string
      */
@@ -68,6 +71,8 @@ class TotalRecords extends Card
             'model'   => $this->model,
             'title'   => $this->title,
             'expires' => $this->expires,
+            'helpWidth' => $this->getHelpWidth(),
+            'helpText' => $this->getHelpText(),
         ], parent::jsonSerialize());
     }
 }
